@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 import math
 import subprocess
+import os
 from camera import find_angle, measure_joint_angle
 
 # Initialize MediaPipe Pose
@@ -86,6 +87,9 @@ for i in range(1, len(list)):
         score += 100
 
 print(f"Your score is {score}!")
+
+if os.path.exists("angles.txt"):
+    os.remove("angles.txt")
 
 cap.release()
 cv2.destroyAllWindows()
